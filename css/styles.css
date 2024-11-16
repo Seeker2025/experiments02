@@ -1,0 +1,65 @@
+body{
+    background-color: rgb(51, 59, 133);
+    padding: 1px;
+    display: flex;
+    font-family: Arial, Helvetica, sans-serif;
+   
+}
+.backdrop{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* position: fixed;
+    top: 0;
+    left: 0; */
+    width: 60vw;
+    height: 50vh;
+    background-color: rgb(108, 27, 27);
+    z-index: 999;
+    pointer-events: none;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 200ms ease-in-out, visibility 200ms ease-in-out;
+}
+body.show-modal .backdrop{
+    /* position: fixed;
+        top: 50px;
+        left: 50px; */
+    opacity: 1;
+    visibility: visible;
+    pointer-events: initial; 
+    border: 7px dashed rgb(24, 130, 165);
+}
+.modal{
+    background-color: #fff;
+    width: 350px;
+    height: 200px;
+    padding: 10px;
+}
+
+
+/* Моя модалка */
+.modal__box{
+    background-color: rgb(7, 88, 25);
+    border: 6px dashed rgb(218, 156, 32);
+    width: 60vw;
+    height: 35vh;
+    padding: 20px;
+    visibility: hidden;
+}
+
+.modal_window{
+    background-color: bisque;
+    border: 3px dashed goldenrod;
+    width: 25vw;
+    height: 20vh;
+    padding: 20px;
+    
+}
+
+section.section_class .modal__box {
+   visibility: visible;
+}
+.modal_window__close{
+    cursor: pointer;
+}
