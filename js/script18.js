@@ -12,6 +12,7 @@
 
 
 //// Form
+//// Собираем данные из формы в объект с помощью elements
 // const formEl = document.querySelector('.js-form');
 // // console.dir(formEl);
 // formEl.addEventListener('submit', onSubmit);
@@ -33,33 +34,30 @@
 // console.log(data);
 // }
 
+const container = document.querySelector('.js-container');
+container.addEventListener('click', onClick);
 
-
-
-
-
-
-const refForm02 = document.querySelector('.form_02');
-// console.log(refForm02);
-refForm02.addEventListener('submit', toSentForm);
-
-function toSentForm(event) {
-    event.preventDefault();
-console.log(event.currentTarget);
-console.log(event.currentTarget.elements.userEmail.value);
-
-    const { userName, userEmail, userPass } = event.currentTarget.elements;
-    console.log(userName.value);
-    console.log(userEmail.value);
-    console.log(userPass.value);
-
-    const dataMy = {
-        name: userName.value,
-        mail: userEmail.value,
-        pass: userPass.value,
-    };
-    console.log(dataMy);
-    
+function onClick(event02) {
+    if (event02.target.nodeName !== 'BUTTON') {
+        return;
+    }
+    // console.log(event02.target);
+    // console.log(event02.currentTarget);
+    const currentActiveBtn = document.querySelector('.button_style');
+    if (currentActiveBtn) {
+       currentActiveBtn.classList.remove('button_style');
+    }
+    event02.target.classList.add('button_style');
 }
+
+
+
+
+
+
+
+
+
+
 
 

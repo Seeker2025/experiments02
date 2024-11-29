@@ -63,3 +63,17 @@ section.section_class .modal__box {
 .modal_window__close{
     cursor: pointer;
 }
+/*Пример с кнопками Саши Репеты. Модуль 8. Занятие 15. Делегирование событий*/
+.container {
+    padding: 15px;
+    border: 4px dashed rgb(178, 91, 91);
+    background: gray;
+}
+.container button{
+    padding: 15px;
+}
+.container .button_style{
+    background: rgb(238, 231, 16);
+    padding: 15px;
+
+}
