@@ -70,10 +70,29 @@ section.section_class .modal__box {
     background: gray;
 }
 .container button{
-    padding: 15px;
+    padding: 10px 15px;
 }
 .container .button_style{
     background: rgb(238, 231, 16);
-    padding: 15px;
+    padding: 10px 15px;
 
+}
+
+
+
+/* This is color picker */
+.box__forManyCards {
+    background-color: gray;
+    display: flex;
+    flex-direction: row;
+}
+.oneCard{
+    padding: 15px;
+    width: 250px;
+    height: 250px;
+    border: 2px dashed red;
+}
+.color-swatch{
+    width: 150px;
+    height: 150px;
 }

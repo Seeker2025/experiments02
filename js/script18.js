@@ -1,3 +1,8 @@
+import colors from '../data/colors.js'
+
+
+
+
 ///// destructuring
 // const isObjToDestruction = {
 //     name01: 'Masha',
@@ -35,7 +40,7 @@
 // }
 
 
-////// Butons
+////// Buttons
 // const container = document.querySelector('.js-container');
 // container.addEventListener('click', onClick);
 // function onClick(event02) {
@@ -60,22 +65,46 @@
 
 
 
-////// Buttons Repeating
-const box_button = document.querySelector('.js_box_button');
-// console.log(box_button);
-box_button.addEventListener('click', clickOnBox);
-function clickOnBox(event03) {
-    // console.log(event03.target);
 
-    if (event03.target.nodeName !== 'BUTTON') {
-        return;
-    }
-    // else{console.log('Hi!')}
-    const activeButton = document.querySelector('.button_style');
-    // if (activeButton) {
-    //     activeButton.classList.remove('button_style');
-    // }
 
-    event03.target.classList.toggle('button_style');
+
+
+
+////// This is color picker
+const boxForManyCards = document.querySelector('.box__forManyCards');
+// console.log(colors);
+console.log(boxForManyCards);
+
+function generateCard() {
+    return colors.map((col) => {
+        return `<div class="oneCard">
+        <div
+        class="color-swatch"
+        style="background-color:gold";
+        >
+        </div>
+        
+        </div>
+        ` 
+}).join(' ');
+
 }
+boxForManyCards.insertAdjacentHTML('beforeend', generateCard())
+
+//  console.log(generateCard());
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
 
