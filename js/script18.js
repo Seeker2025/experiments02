@@ -71,27 +71,58 @@ import colors from '../data/colors.js'
 
 
 ////// This is color picker
-const boxForManyCards = document.querySelector('.box__forManyCards');
+const paletteContainer = document.querySelector('.js-palette');
 // console.log(colors);
-console.log(boxForManyCards);
+// console.log(paletteContainer);
 
 function generateCard() {
-    return colors.map((col) => {
-        return `<div class="oneCard">
-        <div
-        class="color-swatch"
-        style="background-color:gold";
-        >
+    return colors.map(({ hex, rgb }) => {
+        return `
+        <div class="color-card">
+            <div
+                class="color-swatch"
+                data-hex="${hex}"
+                data-rgb="${rgb}"
+                style="background-color:${hex}"
+            ></div>
+
+            <div class="color-meta">
+                <p>HEX: ${hex}</p>
+                <p>RGB: ${rgb}</p>
+            </div>
         </div>
-        
-        </div>
-        ` 
+        ` ;
 }).join(' ');
 
 }
-boxForManyCards.insertAdjacentHTML('beforeend', generateCard())
+const layout = generateCard();
+paletteContainer.insertAdjacentHTML('beforeend', layout);
 
-//  console.log(generateCard());
+
+paletteContainer.addEventListener('click', toFun02);
+console.log(paletteContainer);
+function toFun02(evt04) {
+    // console.log(evt04.target);
+    if (!evt04.target.classList.contains('color-swatch')) {
+        return;
+    }
+   
+    
+   
+    const jsActive = evt04.target.parentNode;
+
+    const arr02 = document.querySelector('.color-card.js-active');
+    
+    if (arr02) {
+       arr02.classList.remove('js-active')
+     }
+    jsActive.classList.add('js-active');
+  
+    
+    document.body.style.backgroundColor = evt04.target.dataset.hex;
+    console.log(evt04.target.dataset.hex);
+}
+
 
     
 
