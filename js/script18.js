@@ -119,28 +119,63 @@ import colors from '../data/colors.js'
 //     // console.log(evt04.target.dataset.hex);
 // }
 
-
 //////Event delegation 02
-const refParent = document.querySelector('.parent');
-const refInner = document.querySelector('.inner');
-const refChild = document.querySelector('.child');
-// console.log(refParent);
-// console.log(refInner);
-// console.log(refChild);
-refChild.addEventListener('click', childFun);
-refInner.addEventListener('click', innerFun);
-refParent.addEventListener('click', ParentFun);
-function childFun(evt05) {
-    // console.log(evt05.target);
-    console.log(evt05.currentTarget);
+//////Data atributes (dataset)
+// const refParent = document.querySelector('.parent');
+// const refInner = document.querySelector('.inner');
+// const refChild = document.querySelector('.child');
+// // console.log(refParent);
+// // console.log(refInner);
+// // console.log(refChild);
+// refChild.addEventListener('click', childFun);
+// refInner.addEventListener('click', innerFun);
+// refParent.addEventListener('click', ParentFun);
+// function childFun(evt05) {
+//     console.log(evt05.target);
+//     // console.log(evt05.currentTarget);
+//     console.log(evt05.target.dataset.ob01);
+// }
+// function innerFun(evt05) {
+//     console.log(evt05.target);
+//     console.log(evt05.currentTarget);
+//     console.log(evt05.currentTarget.dataset.ob02);
+// }
+// function ParentFun(evt05) {
+//     // console.log(evt05.target);
+//     // console.log(evt05.currentTarget);
+// }
+// //////Data atributes (dataset)
+// console.log(refChild.dataset.ob01);
+// console.log(refInner.dataset.ob02);
+
+////// Gallery
+const galleryGallery = document.querySelector('.js-gallery');
+// console.log(galleryGallery);
+const galleryLink = document.querySelector('.gallery__link');
+const galleryImage = document.querySelector('.gallery__image');
+// console.log(galleryLink);
+// console.log(galleryImage.dataset.source);
+// console.log(galleryImage.src);
+galleryGallery.addEventListener('click', largeImg);
+function largeImg(event) {
+    // console.log(event.target);
+    // console.log(event.currentTarget);
+    // console.log(event.target.nodeName);
+    if (event.target.nodeName !== 'IMG') {
+       return;
+    }
+    // console.log(event.target.nodeName);
+    // console.log(galleryImage.src);
+    galleryImage.src = galleryImage.dataset.source;
+    galleryGallery.classList.add('fix');
 }
-function innerFun(evt05) {
-    // console.log(evt05.target);
-    console.log(evt05.currentTarget);
-}
-function ParentFun(evt05) {
-    // console.log(evt05.target);
-    console.log(evt05.currentTarget);
+//////Cross for Close 
+const galleryClose = document.querySelector('.gallery__close');
+galleryClose.addEventListener('click', closeFun);
+function closeFun(event){
+    console.log(event.target.nodeName);
+    galleryImage.src = "https://cdn.pixabay.com/photo/2016/11/18/16/19/flowers-1835619__340.jpg"
+    galleryGallery.classList.remove('fix');
 }
     
 
