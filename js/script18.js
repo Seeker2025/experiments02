@@ -68,62 +68,80 @@ import colors from '../data/colors.js'
 
 
 
-
+//////Event delegation
 
 ////// This is color picker
-const paletteContainer = document.querySelector('.js-palette');
-// console.log(colors);
+// const paletteContainer = document.querySelector('.js-palette');
+// // console.log(colors);
+// // console.log(paletteContainer);
+
+// function generateCard() {
+//     return colors.map(({ hex, rgb }) => {
+//         return `
+//         <div class="color-card">
+//             <div
+//                 class="color-swatch"
+//                 data-hex="${hex}"
+//                 data-rgb="${rgb}"
+//                 style="background-color:${hex}"
+//             ></div>
+
+//             <div class="color-meta">
+//                 <p>HEX: ${hex}</p>
+//                 <p>RGB: ${rgb}</p>
+//             </div>
+//         </div>
+//         ` ;
+// }).join(' ');
+
+// }
+// const layout = generateCard();
+// paletteContainer.insertAdjacentHTML('beforeend', layout);
+
+// paletteContainer.addEventListener('click', toFun02);
 // console.log(paletteContainer);
-
-function generateCard() {
-    return colors.map(({ hex, rgb }) => {
-        return `
-        <div class="color-card">
-            <div
-                class="color-swatch"
-                data-hex="${hex}"
-                data-rgb="${rgb}"
-                style="background-color:${hex}"
-            ></div>
-
-            <div class="color-meta">
-                <p>HEX: ${hex}</p>
-                <p>RGB: ${rgb}</p>
-            </div>
-        </div>
-        ` ;
-}).join(' ');
-
-}
-const layout = generateCard();
-paletteContainer.insertAdjacentHTML('beforeend', layout);
-
-
-paletteContainer.addEventListener('click', toFun02);
-console.log(paletteContainer);
-function toFun02(evt04) {
-    // console.log(evt04.target);
-    if (!evt04.target.classList.contains('color-swatch')) {
-        return;
-    }
+// function toFun02(evt04) {
+//     // console.log(evt04.target);
+//     if (!evt04.target.classList.contains('color-swatch')) {
+//         return;
+//     }
    
-    
-   
-    const jsActive = evt04.target.parentNode;
+//     const jsActive = evt04.target.parentNode;
 
-    const arr02 = document.querySelector('.color-card.js-active');
+//     const arr02 = document.querySelector('.color-card.js-active');
     
-    if (arr02) {
-       arr02.classList.remove('js-active')
-     }
-    jsActive.classList.add('js-active');
+//     if (arr02) {
+//        arr02.classList.remove('js-active')
+//      }
+//     jsActive.classList.add('js-active');
   
-    
-    document.body.style.backgroundColor = evt04.target.dataset.hex;
-    console.log(evt04.target.dataset.hex);
+//     document.body.style.backgroundColor = evt04.target.dataset.hex;
+//     // console.log(evt04.target.dataset.hex);
+// }
+
+
+//////Event delegation 02
+const refParent = document.querySelector('.parent');
+const refInner = document.querySelector('.inner');
+const refChild = document.querySelector('.child');
+// console.log(refParent);
+// console.log(refInner);
+// console.log(refChild);
+refChild.addEventListener('click', childFun);
+refInner.addEventListener('click', innerFun);
+refParent.addEventListener('click', ParentFun);
+function childFun(evt05) {
+    // console.log(evt05.target);
+    console.log(evt05.currentTarget);
 }
-
-
+function innerFun(evt05) {
+    // console.log(evt05.target);
+    console.log(evt05.currentTarget);
+}
+function ParentFun(evt05) {
+    // console.log(evt05.target);
+    console.log(evt05.currentTarget);
+}
     
 
 

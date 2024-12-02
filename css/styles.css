@@ -84,6 +84,7 @@ section.section_class .modal__box {
 
 /* This is color picker */
 .palette {
+    margin: 0 auto;
     max-width: 1600px;
     background-color: gray;
     display: flex;
@@ -106,8 +107,8 @@ section.section_class .modal__box {
 
 }
 .color-card.js-active{
-    /* transform: perspective(480px) rotateX(10deg); */
-    border: 3px dashed red;
+    transform: perspective(480px) rotateX(10deg);
+    border: 2px dashed red;
 }
 .color-swatch{
    height: 128px;
@@ -121,4 +122,29 @@ section.section_class .modal__box {
     margin-top: 0;
     margin-bottom: 0;
     letter-spacing: 0.1em;
+}
+
+/* Event delegation 02 */
+.parent{
+    color: #fff;
+    padding: 10px;
+    width: 600px;
+    height: 300px;
+    background-color: rgba(139, 49, 7, 0.945);
+}
+.inner{
+    padding: 10px;
+    margin: 15px auto;
+    width: 400px;
+    height: 250px;
+    background-color: rgba(7, 58, 139, 0.945);
+
+}
+.child{
+    padding: 10px;
+    margin: 25px auto;
+    width: 200px;
+    height: 150px;
+    background-color: rgba(102, 139, 7, 0.945);
+
 }
