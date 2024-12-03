@@ -177,6 +177,43 @@ function closeFun(event){
     galleryImage.src = "https://cdn.pixabay.com/photo/2016/11/18/16/19/flowers-1835619__340.jpg"
     galleryGallery.classList.remove('fix');
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+////// Color Picker 02
+// console.log(colors);
+
+const newMass = colors.map(itm => {
+    return `<div class="box__elem">
+            <div class="box__color"
+            style="background: ${itm.hex}"
+            >
+
+            </div>
+            <p>color RGB ${itm.rgb}</p>
+            <p>color HEX ${itm.hex}</p>
+
+    
+    
+    </div>`
+}).join('');
+
+
+const boxGallery02 = document.querySelector('.box__gallery_02');
+boxGallery02.insertAdjacentHTML('beforeend', newMass);
+
+
     
 
 

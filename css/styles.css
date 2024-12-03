@@ -175,3 +175,30 @@ p.gallery__close{
 ul.fix p.gallery__close {
     visibility:visible;
 }
+
+
+
+
+.box__gallery_02 {
+    width: 1800px;
+    background-color: rgb(95, 95, 94);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+
+}
+
+.box__elem{
+    width: 210px;
+    height: 240px;
+    border: 2px solid gray;
+    border-radius: 11px;
+    padding: 12px;
+}
+
+.box__color{
+    margin: 0 auto;
+    width: 150px;
+    height: 120px;
+}
