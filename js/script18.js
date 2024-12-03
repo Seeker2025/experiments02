@@ -194,7 +194,8 @@ function closeFun(event){
 ////// Color Picker 02
 // console.log(colors);
 
-const newMass = colors.map(itm => {
+function toGenerate() {
+    return colors.map(itm => {
     return `<div class="box__elem">
             <div class="box__color"
             style="background: ${itm.hex}"
@@ -203,15 +204,33 @@ const newMass = colors.map(itm => {
             </div>
             <p>color RGB ${itm.rgb}</p>
             <p>color HEX ${itm.hex}</p>
-
-    
-    
     </div>`
-}).join('');
-
+    }).join('');
+ }
+const getMass = toGenerate();
 
 const boxGallery02 = document.querySelector('.box__gallery_02');
-boxGallery02.insertAdjacentHTML('beforeend', newMass);
+boxGallery02.insertAdjacentHTML('beforeend', getMass);
+
+// const boxColor = document.querySelector('.box__color');
+// console.log(boxColor);
+// console.log('a');
+
+const zzz = document.querySelector('.box__color');
+boxGallery02.addEventListener('click', toBoxColor);
+function toBoxColor(evt) {
+    // console.log(evt.target);
+    
+    if (!document.querySelector('.box__color')) {
+        console.log('Hi!');
+        return
+    }
+    if (document.querySelector('.box__color.js-pass')) {
+       document.querySelector('.box__color.js-pass').classList.remove('js-pass');
+    }
+    evt.target.classList.add('js-pass');
+
+};
 
 
     
