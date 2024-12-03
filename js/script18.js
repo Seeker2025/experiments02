@@ -225,10 +225,13 @@ function toBoxColor(evt) {
         console.log('Hi!');
         return
     }
-    if (document.querySelector('.box__color.js-pass')) {
-       document.querySelector('.box__color.js-pass').classList.remove('js-pass');
+    const elem = evt.target;
+    const newElem = elem.closest('.box__elem');
+    console.log(newElem);
+    if (document.querySelector('.box__elem.js-pass')) {
+       document.querySelector('.box__elem.js-pass').classList.remove('js-pass');
     }
-    evt.target.classList.add('js-pass');
+    newElem.classList.add('js-pass');
 
 };
 
