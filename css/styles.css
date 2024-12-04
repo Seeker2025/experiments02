@@ -179,31 +179,41 @@ ul.fix p.gallery__close {
 
 
 
-.box__gallery_02 {
-    width: 1800px;
-    background-color: rgb(95, 95, 94);
+/* Event Delegation. Buttons */
+.tags{
     display: flex;
-    flex-direction: row;
-    justify-content: center;
     flex-wrap: wrap;
-
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 8px;
+    border: 4px dashed gray;
+    width: 1000px;
 }
-
-.box__elem{
-    width: 210px;
-    height: 240px;
-    border: 2px solid gray;
-    border-radius: 11px;
-    padding: 12px;
-}
-
-.box__color{
-    margin: 0 auto;
-    width: 150px;
-    height: 120px;
-}
-
-.js-pass {
+.tags_item{
+    margin: 0 4px;
     
-    border: 2px dashed red;
+}
+.tags_btn{
+    border: 1px solid #000;
+    display: inline-block;
+    vertical-align: top;
+    border-radius: 2px;
+    padding: 4px 10px;
+
+    font-size: 18px;
+    font-family: inherit;
+    color: #212121;
+    font-weight: 500;
+    text-align: center;
+    white-space: nowrap;
+    text-decoration: none;
+    outline: none;
+
+    cursor: pointer;
+}
+
+.tags__btn--active{
+    background-color: #689b01;
+    color: #fff;
 }

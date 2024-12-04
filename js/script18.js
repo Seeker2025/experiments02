@@ -182,58 +182,45 @@ function closeFun(event){
 
 
 
+// Event Delegation. Buttons
+const tabsRef = document.querySelector('.js-tags');
+const activeTag = document.querySelector('.js-active-tag');
 
+tabsRef.addEventListener('click', (event) => {
+    // console.log(event.target.nodeName);
+    if (event.target.nodeName !== 'BUTTON') {
+        return;
 
-
-
-
-
-
-
-
-////// Color Picker 02
-// console.log(colors);
-
-function toGenerate() {
-    return colors.map(itm => {
-    return `<div class="box__elem">
-            <div class="box__color"
-            style="background: ${itm.hex}"
-            >
-
-            </div>
-            <p>color RGB ${itm.rgb}</p>
-            <p>color HEX ${itm.hex}</p>
-    </div>`
-    }).join('');
- }
-const getMass = toGenerate();
-
-const boxGallery02 = document.querySelector('.box__gallery_02');
-boxGallery02.insertAdjacentHTML('beforeend', getMass);
-
-// const boxColor = document.querySelector('.box__color');
-// console.log(boxColor);
-// console.log('a');
-
-const zzz = document.querySelector('.box__color');
-boxGallery02.addEventListener('click', toBoxColor);
-function toBoxColor(evt) {
-    // console.log(evt.target);
-    
-    if (!document.querySelector('.box__color')) {
-        console.log('Hi!');
-        return
     }
-    const elem = evt.target;
-    const newElem = elem.closest('.box__elem');
-    console.log(newElem);
-    if (document.querySelector('.box__elem.js-pass')) {
-       document.querySelector('.box__elem.js-pass').classList.remove('js-pass');
-    }
-    newElem.classList.add('js-pass');
+    //  console.log(event.currentTarget);
+    const prevBtn = event.currentTarget.querySelector('.tags__btn--active');
+    // console.log(prevBtn);
+    // console.log(event.currentTarget);
+    // console.log(event.target);
 
-};
+    if (prevBtn) {
+        prevBtn.classList.remove('tags__btn--active');
+    }
+
+
+    const btn = event.target;
+    // console.log(btn);
+    btn.classList.add('tags__btn--active');
+
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     
