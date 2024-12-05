@@ -173,7 +173,7 @@ function largeImg(event) {
 const galleryClose = document.querySelector('.gallery__close');
 galleryClose.addEventListener('click', closeFun);
 function closeFun(event){
-    console.log(event.target.nodeName);
+    // console.log(event.target.nodeName);
     galleryImage.src = "https://cdn.pixabay.com/photo/2016/11/18/16/19/flowers-1835619__340.jpg"
     galleryGallery.classList.remove('fix');
 }
@@ -182,7 +182,7 @@ function closeFun(event){
 
 
 
-// Event Delegation. Buttons
+// Event Delegation. Green Buttons
 const tabsRef = document.querySelector('.js-tags');
 const activeTag = document.querySelector('.js-active-tag');
 
@@ -190,25 +190,39 @@ tabsRef.addEventListener('click', (event) => {
     // console.log(event.target.nodeName);
     if (event.target.nodeName !== 'BUTTON') {
         return;
-
     }
     //  console.log(event.currentTarget);
     const prevBtn = event.currentTarget.querySelector('.tags__btn--active');
     // console.log(prevBtn);
     // console.log(event.currentTarget);
     // console.log(event.target);
-
     if (prevBtn) {
         prevBtn.classList.remove('tags__btn--active');
     }
-
-
     const btn = event.target;
     // console.log(btn);
     btn.classList.add('tags__btn--active');
-
 })
 
+
+
+
+
+
+
+
+////// script18.js
+// const thisUl = document.querySelector('.this_ul');
+// const thisLi02 = document.querySelector('.this_ul .this_li');
+// // console.log(thisUl);
+// console.log(thisUl);    //////<ul class="this_ul"></ul>
+// console.log(thisLi02);  //////<li class="this_li"></li>
+// const thisA = thisUl.querySelector('.this_a');
+// const thisP = thisUl.querySelector('.this_a p');
+// const thisDiv = thisUl.querySelector('.this_a .this_div');
+// console.log(thisA);     //////<a class="this_a">Link a</a>
+// console.log(thisP);     //////<p></p>
+// console.log(thisDiv);   /////<div class="this_div">text div</div>
 
 
 
