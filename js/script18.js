@@ -1,8 +1,5 @@
 import colors from '../data/colors.js'
 
-
-
-
 ///// destructuring
 // const isObjToDestruction = {
 //     name01: 'Masha',
@@ -153,6 +150,8 @@ const galleryGallery = document.querySelector('.js-gallery');
 // console.log(galleryGallery);
 const galleryLink = document.querySelector('.gallery__link');
 const galleryImage = document.querySelector('.gallery__image');
+const smallImg = galleryImage.src;
+console.log(smallImg);
 // console.log(galleryLink);
 // console.log(galleryImage.dataset.source);
 // console.log(galleryImage.src);
@@ -166,6 +165,7 @@ function largeImg(event) {
     }
     // console.log(event.target.nodeName);
     // console.log(galleryImage.src);
+    
     galleryImage.src = galleryImage.dataset.source;
     galleryGallery.classList.add('fix');
 }
@@ -174,17 +174,15 @@ const galleryClose = document.querySelector('.gallery__close');
 galleryClose.addEventListener('click', closeFun);
 function closeFun(event){
     // console.log(event.target.nodeName);
-    galleryImage.src = "https://cdn.pixabay.com/photo/2016/11/18/16/19/flowers-1835619__340.jpg"
+    // galleryImage.src = "https://cdn.pixabay.com/photo/2016/11/18/16/19/flowers-1835619__340.jpg"
+    galleryImage.src = smallImg;
     galleryGallery.classList.remove('fix');
 }
-
-
-
-
 
 // Event Delegation. Green Buttons
 const tabsRef = document.querySelector('.js-tags');
 const activeTag = document.querySelector('.js-active-tag');
+const h2Ref = document.querySelector('.class_h2');
 
 tabsRef.addEventListener('click', (event) => {
     // console.log(event.target.nodeName);
@@ -199,9 +197,11 @@ tabsRef.addEventListener('click', (event) => {
     if (prevBtn) {
         prevBtn.classList.remove('tags__btn--active');
     }
-    const btn = event.target;
+    const nextBtn = event.target;
     // console.log(btn);
-    btn.classList.add('tags__btn--active');
+    nextBtn.classList.add('tags__btn--active');
+    const { value } = nextBtn.dataset;
+    console.log(value);
 })
 
 
