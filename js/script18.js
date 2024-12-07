@@ -146,38 +146,38 @@ import colors from '../data/colors.js'
 // console.log(refInner.dataset.ob02);
 
 ////// Gallery
-const galleryGallery = document.querySelector('.js-gallery');
-// console.log(galleryGallery);
-const galleryLink = document.querySelector('.gallery__link');
-const galleryImage = document.querySelector('.gallery__image');
-const smallImg = galleryImage.src;
-console.log(smallImg);
-// console.log(galleryLink);
-// console.log(galleryImage.dataset.source);
-// console.log(galleryImage.src);
-galleryGallery.addEventListener('click', largeImg);
-function largeImg(event) {
-    // console.log(event.target);
-    // console.log(event.currentTarget);
-    // console.log(event.target.nodeName);
-    if (event.target.nodeName !== 'IMG') {
-       return;
-    }
-    // console.log(event.target.nodeName);
-    // console.log(galleryImage.src);
+// const galleryGallery = document.querySelector('.js-gallery');
+// // console.log(galleryGallery);
+// // const galleryLink = document.querySelector('.gallery__link');
+// const galleryImage = document.querySelector('.gallery__image');
+// const smallImg = galleryImage.src;
+// // console.log(smallImg);
+// // console.log(galleryLink);
+// // console.log(galleryImage.dataset.source);
+// // console.log(galleryImage.src);
+// galleryGallery.addEventListener('click', largeImg);
+// function largeImg(event) {
+//     // console.log(event.target);
+//     // console.log(event.currentTarget);
+//     // console.log(event.target.nodeName);
+//     if (event.target.nodeName !== 'IMG') {
+//        return;
+//     }
+//     // console.log(event.target.nodeName);
+//     // console.log(galleryImage.src);
     
-    galleryImage.src = galleryImage.dataset.source;
-    galleryGallery.classList.add('fix');
-}
-//////Cross for Close 
-const galleryClose = document.querySelector('.gallery__close');
-galleryClose.addEventListener('click', closeFun);
-function closeFun(event){
-    // console.log(event.target.nodeName);
-    // galleryImage.src = "https://cdn.pixabay.com/photo/2016/11/18/16/19/flowers-1835619__340.jpg"
-    galleryImage.src = smallImg;
-    galleryGallery.classList.remove('fix');
-}
+//     galleryImage.src = galleryImage.dataset.source;
+//     galleryGallery.classList.add('fix');
+// }
+// //////Cross for Close 
+// const galleryClose = document.querySelector('.gallery__close');
+// galleryClose.addEventListener('click', closeFun);
+// function closeFun(event){
+//     // console.log(event.target.nodeName);
+//     // galleryImage.src = "https://cdn.pixabay.com/photo/2016/11/18/16/19/flowers-1835619__340.jpg"
+//     galleryImage.src = smallImg;
+//     galleryGallery.classList.remove('fix');
+// }
 
 // Event Delegation. Green Buttons
 const tabsRef = document.querySelector('.js-tags');
