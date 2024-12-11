@@ -1,6 +1,8 @@
 ////// Event Delegation
 ////// OOP
 
+import cars from '../data/cars.js' 
+
 ////// it does not work
 // class Gallery {
 //     constructor({galleryGallery, galleryImage}) {
@@ -49,15 +51,81 @@
 // const thisUl = document.querySelector('.this_ul');//// это ul
 // console.log(Array.isArray([...thisUl.children]));//// Псевдомассив преобразуем в массив
 
+// console.log(cars);
 
+const container = document.querySelector('.js-container');
 
-class Peace{
-    constructor(town, village) {
-        this.town = town;
-        this.village = village;
-        
+const carsMarkup = cars.map(({ id, img, car }) => {
+    //// Одинаковый класс на три разных элемента.
+    //// Что бы отлавить event.target
+
+    return `
+    <ul >
+    <li data-car-id="${id}" class="js-target">
+    <img src="${img}" class="js-target"
+    alt="${car}"
+    width="200">
+    <h2 class="js-target">${car}</h2>
+    </li>
+    </ul>
+    `
+    
+}).join('');
+container.insertAdjacentHTML('beforeend', carsMarkup);
+
+console.log(container);
+
+container.addEventListener('click', onClick);
+
+function onClick(event) {
+    // console.log(event.target);
+    if (!event.target.classList.contains('js-target')) {
+        // console.log('Whoa!')
+        return;
+    }
+    const { target } = event;
+    const carId = target.dataset.carId ?? target.closest('li').dataset.carId;
+    console.log(carId);
+    const currentItem = cars.find(({ id }) => id === Number(carId));
+    // console.log(currentItem);
+    
+    const {img, car, type, price} = currentItem;
+    const instance = basicLightbox.create(`
+    <div class="bg">
+    <img src="${img}" width="300" alt="${car}"
+    <h2>${car}</h2>
+    <h3>${type}</h3>
+    <p>${price}</p>
+    </div>
+`);
+    instance.show();
+
+const esc = 'Escape';
+document.addEventListener('keydown', toKeyDown);
+function toKeyDown(event) {
+    if (event.key === esc) {
+        // console.log("whoa!");
+        instance.close();
     }
 }
-const boo02 = new Peace('Bucha', 'Fastiv');
-console.log(boo02);
+
+
+}
+
+ 
+
+
+
+// ////// For Examples for basicLightbox
+// const instance = basicLightbox.create(`
+// //     <h1>Dynamic Content</h1>
+// //     <p>You can set the content of the lightbox with JS.</p>
+// // `)
+// // console.log(instance);
+// // instance.show();
+
+
+
+
+
 

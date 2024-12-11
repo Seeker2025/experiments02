@@ -1,6 +1,6 @@
 body{
     background-color: rgb(51, 59, 133);
-    color: #9f9f9f;
+    color: #cfcece;
     padding: 1px;
     display: flex;
     font-family: Arial, Helvetica, sans-serif;
@@ -216,4 +216,20 @@ ul.fix p.gallery__close {
 .tags__btn--active{
     background-color: #689b01;
     color: #fff;
+}
+
+
+/* Cars */
+.container{
+    width: 1200px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    background-color: #505150;
+}
+.bg{
+    background-color: #577da1;
+    padding: 10px;
+
 }
