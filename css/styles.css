@@ -233,3 +233,34 @@ ul.fix p.gallery__close {
     padding: 10px;
 
 }
+/* Tic Tac Toe */
+.container_Tic{
+    display: flex;
+    justify-content: space-around;
+    width: 800px;
+    height: auto;
+    background-color: #445b27;
+    border: 4px dashed #212121;
+    padding: 15px;
+
+}
+.content{
+    width: 156px;
+    border: 1px solid rgb(246, 236, 46);
+    margin: 0 auto;
+}
+.item{
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    display: inline-block;
+    font-size: 25px;
+    border: 1px solid rgb(137, 48, 48);
+    cursor: pointer;
+    vertical-align: middle;
+    transition: background .1s;
+}
+.item-black{
+    background-color: #000000;
+}

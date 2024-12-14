@@ -73,7 +73,7 @@ const carsMarkup = cars.map(({ id, img, car }) => {
 }).join('');
 container.insertAdjacentHTML('beforeend', carsMarkup);
 
-console.log(container);
+// console.log(container);
 
 container.addEventListener('click', onClick);
 
@@ -84,7 +84,9 @@ function onClick(event) {
         return;
     }
     const { target } = event;
+    //////левая часть выражения не нужна!
     const carId = target.dataset.carId ?? target.closest('li').dataset.carId;
+   
     console.log(carId);
     const currentItem = cars.find(({ id }) => id === Number(carId));
     // console.log(currentItem);
@@ -97,7 +99,9 @@ function onClick(event) {
     <h3>${type}</h3>
     <p>${price}</p>
     </div>
-`);
+`, {
+    ////// There are objects here 
+});
     instance.show();
 
 const esc = 'Escape';
@@ -109,12 +113,7 @@ function toKeyDown(event) {
     }
 }
 
-
 }
-
- 
-
-
 
 // ////// For Examples for basicLightbox
 // const instance = basicLightbox.create(`
@@ -128,4 +127,102 @@ function toKeyDown(event) {
 
 
 
+////// Tic Tac Toe
+const containerTic = document.querySelector('.js-content');
+// console.log(containerTic);
+ 
+let markup = '';
+let player = 'X';
+const win = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9],
+    [1, 4, 7],
+    [2, 5, 8],
+    [3, 6, 9],
+    [1, 5, 9],
+    [3, 5, 7],
+];
+const historyX = [];
+const historyY = [];
+
+////// Date attributes are strings only!
+for (let i = 1; i < 10; i += 1){
+    markup +=`<div class="item js-item" data-id="${i}"></div>`
+}
+// console.log(markup);
+containerTic.innerHTML = markup;
+// containerTic.insertAdjacentHTML('beforeend', markup)
+
+containerTic.addEventListener('click', onClickTic);
+
+function onClickTic(evt) {
+    if (!evt.target.classList.contains('js-item')||evt.target.textContent ) {
+        return;
+        // console.log('Hi!');
+    }
+    const { target } = evt;
+    const id = Number(target.dataset.id);
+    let result = false; 
+    
+    if (player === 'X') {
+        historyX.push(id);
+        result = isWinner(historyX);
+    } else {
+        historyY.push(id)
+        result = isWinner(historyY);
+    }
+    // console.log(evt.target);
+    // console.log(evt.currentTarget);
+    // console.log(historyX);
+    // console.log(historyY);
+    if (result) {
+        console.log('Winner is', `${player}`);
+    }
+    
+
+    target.textContent = player;
+    // console.log(target.textContent);
+    player = player === 'X' ? 'O' : 'X';
+
+   
+}
+console.log(isWinner(historyX));
+
+
+function isWinner(arr) {
+    return win.some(item => item.every(id => arr.includes(id)))
+}
+
+
+
+
+
+// const arr07 = [1, 2, 3,];
+// console.log([1, 2, 3].every(item => arr07.includes(item)));
+
+
+
+
+
+
+
+
+
+
+//////Exp
+// const arr05 = [1, 2, 4];
+// const arr = [[1, 2, 4], [1, 2, 5]];
+// const arrNew = [4, 2, 1];
+// const arr02 = arr.some(itm => itm === 5);
+// // console.log(arr02);
+// const arr06 = arr.every(itm => {
+//     return (itm < 6);
+// } );
+// console.log(arr06);
+// const arr04 = arr.some(itm=>itm.every(item=>arrNew.includes(item)));
+// console.log(arr04);
+// ////// includes() with string. Well done!
+// const str = 'pye';
+// console.log(str.includes('p'));////// true
 
