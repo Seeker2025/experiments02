@@ -1,5 +1,6 @@
 ////// Event Delegation
 ////// OOP
+////// Tic Tac Toe
 
 import cars from '../data/cars.js' 
 
@@ -123,15 +124,10 @@ function toKeyDown(event) {
 // // console.log(instance);
 // // instance.show();
 
-
-
-
-
 ////// Tic Tac Toe
 const containerTic = document.querySelector('.js-content');
 // console.log(containerTic);
  
-let markup = '';
 let player = 'X';
 const win = [
     [1, 2, 3],
@@ -143,19 +139,24 @@ const win = [
     [1, 5, 9],
     [3, 5, 7],
 ];
-const historyX = [];
-const historyY = [];
+let historyX = [];
+let historyY = [];
 
 ////// Date attributes are strings only!
-for (let i = 1; i < 10; i += 1){
+function createMarkup() {
+    let markup = '';
+    for (let i = 1; i < 10; i += 1){
     markup +=`<div class="item js-item" data-id="${i}"></div>`
 }
-// console.log(markup);
 containerTic.innerHTML = markup;
+}
+createMarkup();
 // containerTic.insertAdjacentHTML('beforeend', markup)
 
 containerTic.addEventListener('click', onClickTic);
 
+ const winnerIs = document.querySelector('.winner_is');
+//  console.log(winnerIs);
 function onClickTic(evt) {
     if (!evt.target.classList.contains('js-item')||evt.target.textContent ) {
         return;
@@ -176,22 +177,41 @@ function onClickTic(evt) {
     // console.log(evt.currentTarget);
     // console.log(historyX);
     // console.log(historyY);
+    target.textContent = player;
+    console.log(result);
+
     if (result) {
-        console.log('Winner is', `${player}`);
+        // console.log('Winner is', `${player}`);
+        winnerIs.textContent = `Hooray! Winner is player${player}`;
+        resetGame();
+        return;
+    } else if(historyX.length+historyY.length===9){
+        // console.log('Try again', `${player}`);
+        winnerIs.textContent = `Hooray! Winner is player${player}`
+        resetGame();
+        return;
+        
     }
+
+   
     
 
-    target.textContent = player;
+  
     // console.log(target.textContent);
     player = player === 'X' ? 'O' : 'X';
 
    
 }
-console.log(isWinner(historyX));
-
 
 function isWinner(arr) {
     return win.some(item => item.every(id => arr.includes(id)))
+}
+
+function resetGame() {
+    createMarkup();
+    historyX = [];
+    historyY = [];
+    player = 'X'
 }
 
 
@@ -205,12 +225,7 @@ function isWinner(arr) {
 
 
 
-
-
-
-
-
-//////Exp
+//////exp
 // const arr05 = [1, 2, 4];
 // const arr = [[1, 2, 4], [1, 2, 5]];
 // const arrNew = [4, 2, 1];
@@ -225,4 +240,21 @@ function isWinner(arr) {
 // ////// includes() with string. Well done!
 // const str = 'pye';
 // console.log(str.includes('p'));////// true
+
+//////exp
+if (false){
+    console.log('Hi!');
+}else if(true){
+     console.log('Boo! 02');
+}
+if (false){
+    console.log('Hi!');
+}else{
+     console.log('Boo! 04');
+}
+
+
+
+
+
 
