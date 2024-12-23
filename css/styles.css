@@ -264,3 +264,8 @@ ul.fix p.gallery__close {
 .item-black{
     background-color: #000000;
 }
+
+.input{
+    margin: 15px;
+    border: 2px dashed red;
+}

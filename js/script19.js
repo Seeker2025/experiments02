@@ -1,5 +1,6 @@
 ////// Event Delegation
 ////// OOP
+////// Cars
 ////// Tic Tac Toe
 
 import cars from '../data/cars.js' 
@@ -70,7 +71,6 @@ const carsMarkup = cars.map(({ id, img, car }) => {
     </li>
     </ul>
     `
-    
 }).join('');
 container.insertAdjacentHTML('beforeend', carsMarkup);
 
@@ -113,7 +113,6 @@ function toKeyDown(event) {
         instance.close();
     }
 }
-
 }
 
 // ////// For Examples for basicLightbox
@@ -190,17 +189,9 @@ function onClickTic(evt) {
         winnerIs.textContent = `Hooray! Winner is player${player}`
         resetGame();
         return;
-        
     }
-
-   
-    
-
-  
     // console.log(target.textContent);
     player = player === 'X' ? 'O' : 'X';
-
-   
 }
 
 function isWinner(arr) {
@@ -215,14 +206,8 @@ function resetGame() {
 }
 
 
-
-
-
 // const arr07 = [1, 2, 3,];
 // console.log([1, 2, 3].every(item => arr07.includes(item)));
-
-
-
 
 
 //////exp
@@ -242,16 +227,92 @@ function resetGame() {
 // console.log(str.includes('p'));////// true
 
 //////exp
-if (false){
-    console.log('Hi!');
-}else if(true){
-     console.log('Boo! 02');
+// if (false){
+//     console.log('Hi!');
+// }else if(true){
+//      console.log('Boo! 02');
+// }
+// if (false){
+//     console.log('Hi!');
+// }else{
+//      console.log('Boo! 04');
+// }
+
+////// methods
+console.log([1, 2, 3].find(itm=>itm===2));//// 2
+console.log([1, 2, 3].some(itm=>itm===3));////true
+console.log([1, 2, 3].some(itm=>true));////true
+console.log([1, 2, 3].every(itm=>[4, 5, 6]));////true
+console.log([1, 2, 3].every(itm=>true));////true
+console.log([1, 2, 3].every(itm => false));////false
+//////  split
+const str = 'The quick brown fox jumps over the lazy dog';
+const words = 'quick';
+const arr = str.split(' ');
+const arr02 = words.split(' ');
+const arr03 = words.split('');
+console.log(Array.isArray(arr));//////true
+console.log(arr);//////['The', 'quick', 'brown', 'fox', 'jumps', 'over', 'the', 'lazy', 'dog']
+console.log(arr02);/////['quick']
+console.log(arr03);/////['q', 'u', 'i', 'c', 'k']
+
+let getEll = selector => document.querySelector(selector);
+console.log(getEll('.winner_is'));  //////<h3 class="winner_is">Who is Winner?</h3>
+console.log(getEll('.container_Tic')); ///<div class="container_Tic"></div>
+
+
+
+
+
+//////_.debounce
+const tech = [
+    { label: 'HTML' },
+    { label: 'CCS' },
+    { label: 'JavaScript' },
+    { label: 'Node.js' },
+    { label: 'Vue' },
+    { label: 'Next.js' },
+    { label: 'Mobx' },
+    { label: 'Redux' },
+    { label: 'React Router' },
+    { label: 'GraphQL' },
+    { label: 'PostgresSQL' },
+    { label: 'MongoDB' },
+];
+
+const refs = {
+    list: document.querySelector('.js-list'),
+    input: document.querySelector('#filter'),
+};
+
+function createListItemMarkup(items) {
+    return items.map(item => {
+        return `
+            <li class="li">${item.label}</li>
+        `
+    }).join('');
 }
-if (false){
-    console.log('Hi!');
-}else{
-     console.log('Boo! 04');
+// console.log(refs.list);
+// console.log(refs.input);
+console.log(createListItemMarkup(tech));
+
+populateList(createListItemMarkup(tech))
+
+refs.input.addEventListener('input', _.debounce(onFilterChange, 300));
+
+function onFilterChange(event) {
+    // console.log(event.target.value.toLowerCase());
+    const filter = event.target.value.toLowerCase();
+    let filteredItems = tech.filter(t => t.label.toLowerCase().includes(filter));
+    console.log(filteredItems);
+    const listItemMarkup = createListItemMarkup(filteredItems);
+    // console.log(listItemMarkup);
+        populateList(listItemMarkup)
 }
+function populateList(markup) {
+    refs.list.innerHTML = markup;
+}
+
 
 
 
