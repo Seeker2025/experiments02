@@ -279,39 +279,68 @@ const tech = [
     { label: 'PostgresSQL' },
     { label: 'MongoDB' },
 ];
+// const refs = {
+//     list: document.querySelector('.js-list'),
+//     input: document.querySelector('#filter'),
+// };
+// function createListItemMarkup(items) {
+//     return items.map(item => {
+//         return `
+//             <li class="li">${item.label}</li>
+//         `
+//     }).join('');
+// }
+// // console.log(refs.list);
+// // console.log(refs.input);
+// // console.log(createListItemMarkup(tech));
+// populateList(createListItemMarkup(tech))
+// refs.input.addEventListener('input', _.debounce(onFilterChange, 300));
+// function onFilterChange(event) {
+//     // console.log(event.target.value.toLowerCase());
+//     const filter = event.target.value.toLowerCase();
+//     let filteredItems = tech.filter(t => t.label.toLowerCase().includes(filter));
+//     console.log(filteredItems);
+//     const listItemMarkup = createListItemMarkup(filteredItems);
+//     // console.log(listItemMarkup);
+//         populateList(listItemMarkup)
+// }
+// function populateList(markup) {
+//     refs.list.innerHTML = markup;
+// }
 
-const refs = {
-    list: document.querySelector('.js-list'),
-    input: document.querySelector('#filter'),
-};
+const manyRefs = selector => document.querySelector(selector);
+const ulContainer = manyRefs('.js-list');
+const inputRef = manyRefs('.js-input');
+console.log(ulContainer);
+console.log(inputRef);
 
-function createListItemMarkup(items) {
-    return items.map(item => {
-        return `
-            <li class="li">${item.label}</li>
-        `
-    }).join('');
+function createMarkUp(qqq) {
+    return qqq.map(item => {
+    return `
+        <li class="li__item">${item.label}</li>
+    `
+}).join('');
 }
-// console.log(refs.list);
-// console.log(refs.input);
-console.log(createListItemMarkup(tech));
+const markUp02 = createMarkUp(tech);
 
-populateList(createListItemMarkup(tech))
-
-refs.input.addEventListener('input', _.debounce(onFilterChange, 300));
-
-function onFilterChange(event) {
-    // console.log(event.target.value.toLowerCase());
-    const filter = event.target.value.toLowerCase();
-    let filteredItems = tech.filter(t => t.label.toLowerCase().includes(filter));
-    console.log(filteredItems);
-    const listItemMarkup = createListItemMarkup(filteredItems);
-    // console.log(listItemMarkup);
-        populateList(listItemMarkup)
+function funMarkupAdding (markup){
+    ulContainer.innerHTML = markup;
 }
-function populateList(markup) {
-    refs.list.innerHTML = markup;
+funMarkupAdding(markUp02);
+
+inputRef.addEventListener('input', _.debounce(inputFun, 300))
+
+function inputFun(event) {
+    
+    const valU = event.target.value.toLowerCase();
+    console.log(markUp02);
+    let newMarkUpShort = tech.filter(f => f.label.toLowerCase().includes(valU));
+    console.log(newMarkUpShort);
+    const shoo = createMarkUp(newMarkUpShort);
+    funMarkupAdding(shoo);
+
 }
+
 
 
 
