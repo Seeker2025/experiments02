@@ -310,6 +310,70 @@ function populateList(markup) {
 
 
 
+////// Tasks. FSOn 77 Moдуль 7 Урок 2 Артём Рисіч 29032023
+
+////// Створити функцію яка приймає 1 параметр масив продуктів і повертає мутований 
+////// масив Потрібно перебарати масив і якщо він має об'єкти в яких дублюються айді
+////// то квонтіті цих єлементів потрібно сплюсувати а ті об'єкти в яких айді
+////// співпав видалити з масиву. Потрібно мутувати масив,
+////// створювати новий не потрібно.
+
+const products = [
+    {
+        id: 'sku1',
+        qty: 1,
+    },
+    {
+        id: 'sku2',
+        qty: 2,
+    },
+    {
+        id: 'sku3',
+        qty: 3,
+    },
+    {
+        id: 'sku1',
+        qty: 6,
+    },
+    {
+        id: 'sku1',
+        qty: 8,
+    },
+    {
+        id: 'sku2',
+        qty: 19,
+    },
+    {
+        id: 'sku4',
+        qty: 1,
+    },
+];
+
+/////// Функция не имеет return. Массив сложный ссылочный тип return не нужен
+let a = 0;
+function sortProduct(arr) {
+    for (let i = 0; i < arr.length; i += 1){
+        console.log('поточний >>>>>>>', i,  arr[i]);
+        
+        for (let j = i + 1; j < arr.length; j += 1){
+            console.log('наступний', j, arr[j]);
+            if (arr[i].id === arr[j].id) {
+                console.log(arr[i].qty += arr[j].qty);
+                // arr[i].qty += arr[j].qty;
+                // arr.splice(1, )
+                // console.log(arr[i].qty);
+                // console.log(a);
+            }
+           
+        }
+    }
+}
+
+sortProduct(products);
+console.log(products);
+
+
+
 
 
 

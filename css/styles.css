@@ -12,6 +12,9 @@ ul, li{
 img{
     display: block;
 }
+p{
+    font-size: 20px;
+}
 .backdrop{
     display: flex;
     justify-content: center;
