@@ -359,8 +359,9 @@ function sortProduct(arr) {
             console.log('наступний', j, arr[j]);
             if (arr[i].id === arr[j].id) {
                 console.log(arr[i].qty += arr[j].qty);
-                // arr[i].qty += arr[j].qty;
-                // arr.splice(1, )
+                arr[i].qty += arr[j].qty;
+                arr.splice(j, 1);
+                j -= 1;
                 // console.log(arr[i].qty);
                 // console.log(a);
             }
@@ -372,6 +373,15 @@ function sortProduct(arr) {
 sortProduct(products);
 console.log(products);
 
+// const arr04 = ['a', 'b', 'c',];
+// let a = 0;
+// let c = 0;
+// for (let i = 0; i < arr04.length; i += 1) {
+//     console.table('itt',i);
+//     c = a += 1
+//     console.log(c);
+// }
+// console.log('>>>', c);
 
 
 
