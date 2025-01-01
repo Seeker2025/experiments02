@@ -373,19 +373,41 @@ function sortProduct(arr) {
 sortProduct(products);
 console.log(products);
 
-// const arr04 = ['a', 'b', 'c',];
-// let a = 0;
-// let c = 0;
-// for (let i = 0; i < arr04.length; i += 1) {
-//     console.table('itt',i);
-//     c = a += 1
-//     console.log(c);
-// }
-// console.log('>>>', c);
+////// task
+////// У кожному масиві є унікальний рядок, у якому не повторюються літери.
+////// Знайдіть і виведіть цей рядок
+/////console.log(findUniq(['abc', 'acd', 'bac', 'foo', 'bca', 'cab', 'cba']));
+/////console.log(findUniq(['fghj', 'ghfj', 'abcd', 'jhgf', 'fghj', 'fgjh', 'ghjf']));
+/////console.log(findUniq(['qwe', 'camp', 'acmp', 'pmac', 'camp', 'apmc', 'pmac']));
+
+const str01 = 'abc';
+console.log(str01.split('').every(t=>t==='a')); //false
+console.log(str01.split('').includes('a'));     //true
+
+const str02 = 'abcd';
+console.log(str02.split('')); ////['a', 'b', 'c', 'd']
+console.log('abcd'.split('').slice(-2)); ////['c', 'd']
+console.log('abcd'.split('').slice(1));  ////['b', 'c', 'd']
 
 
+// const arrLar = ['abc', 'acd', 'bac', 'foo', 'bca', 'cab', 'cba',];
+const arrLar = ['abc', 'foo'];
+console.table(arrLar);
 
-
-
-
+for (let i = 0; i < arrLar.length; i += 1) {
+    console.log(i, '>>>', arrLar[i].split(''));
+    for (let j = 0; j < arrLar[i].length; j += 1) {
+        // console.log(arrLar[i].split(''));
+        // console.log(arrLar[i].split('').includes(arrLar[i][j]));
+        console.log('>>', arrLar[i][j]);
+        // console.log('>>', typeof(arrLar[i][j]));
+        // console.log(arrLar[i]===arrLar[j]);
+        for (let s = 0; s < arrLar[i].length; s += 1) {
+            
+            console.log(arrLar[i][j]);
+            // console.log(arrLar[i]);
+            // console.log(arrLar[i].split('').includes('a'));
+        }
+    }
+}
 
