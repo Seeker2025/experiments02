@@ -392,19 +392,53 @@ console.log('abcd'.split('').slice(1));  ////['b', 'c', 'd']
 const arrLar = ['abc', 'acb', 'foo'];
 console.table(arrLar);
 
-// for (let i = 0; i < arrLar.length; i += 1) {
-//         console.log(i);
-//     for (let j = 0; j < arrLar.length; j += 1) {
-//         if (i !== j) {
-//              console.log('поточне', arrLar[i]);
-//              console.log('порівнюю з', arrLar[j]);
-//         }
-           
+for (let i = 0; i < arrLar.length; i += 1) {
+    console.log(i,'>>>>>>', arrLar[i]);
+    // arrLar[i].split('').every(itm => itm.includes(arrLar[i].split('').map(el => el)));
     
-//        }
-//     }
+    for (let j = 0; j < arrLar.length; j += 1){
+        if (i !== j) {
+            // console.log('> ', i, typeof(arrLar[i]));
+            // console.log('> ', i, arrLar[i]);
+            // console.log('>>', j, arrLar[j]);
+            // arrLar[j].split('').map(el =>  console.log(el));
+            
+          
+          arrLar[i].split('').map(el =>  console.log(el));
+           
+
+
+        }
+            
+           
+            
+    }
+    
+}
+       
+const arr08 = ['abc'];
+const arr09 = ['abs'];
+const arr10 = ['abc'];
+const st10 = 'abc';
+const st11 = 'abc';
+const st12 = 'abs';
+
+console.log(st11.split(' ').every(num => num.includes(st10.split(' ').map(el => el))));//true
+
+st12.split(' ').map(el =>  console.log(el));//abc
+st12.split('').map(el =>  console.log(el)); //a
+                                            //b
+                                            //c
+
+
+
+
+
+
+
+
 
 ////// сравниваем два массива
-const arr05 = ['abc'];
-const arr06 = ['abc'];
-console.log(arr05.every(itm => itm.includes(arr06.map(itm=>itm))));//// true
+// const arr05 = ['abc'];
+// const arr06 = ['abc'];
+// console.log(arr05.every(itm => itm.includes(arr06.map(itm=>itm))));//// true
