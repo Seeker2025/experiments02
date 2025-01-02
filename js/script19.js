@@ -317,7 +317,6 @@ function populateList(markup) {
 ////// то квонтіті цих єлементів потрібно сплюсувати а ті об'єкти в яких айді
 ////// співпав видалити з масиву. Потрібно мутувати масив,
 ////// створювати новий не потрібно.
-
 const products = [
     {
         id: 'sku1',
@@ -354,8 +353,7 @@ let a = 0;
 function sortProduct(arr) {
     for (let i = 0; i < arr.length; i += 1){
         console.log('поточний >>>>>>>', i,  arr[i]);
-        
-        for (let j = i + 1; j < arr.length; j += 1){
+            for (let j = i + 1; j < arr.length; j += 1){
             console.log('наступний', j, arr[j]);
             if (arr[i].id === arr[j].id) {
                 console.log(arr[i].qty += arr[j].qty);
@@ -376,9 +374,9 @@ console.log(products);
 ////// task
 ////// У кожному масиві є унікальний рядок, у якому не повторюються літери.
 ////// Знайдіть і виведіть цей рядок
-/////console.log(findUniq(['abc', 'acd', 'bac', 'foo', 'bca', 'cab', 'cba']));
-/////console.log(findUniq(['fghj', 'ghfj', 'abcd', 'jhgf', 'fghj', 'fgjh', 'ghjf']));
-/////console.log(findUniq(['qwe', 'camp', 'acmp', 'pmac', 'camp', 'apmc', 'pmac']));
+/////console.log(findUniq(['abc', 'acd', 'bac', 'foo', 'bca', 'cab', 'cba']));//==='foo'
+/////console.log(findUniq(['fghj', 'ghfj', 'abcd', 'jhgf', 'fghj', 'fgjh', 'ghjf']));//==='abcd'
+/////console.log(findUniq(['qwe', 'camp', 'acmp', 'pmac', 'camp', 'apmc', 'pmac']));//==='qwe'
 
 const str01 = 'abc';
 console.log(str01.split('').every(t=>t==='a')); //false
@@ -391,23 +389,22 @@ console.log('abcd'.split('').slice(1));  ////['b', 'c', 'd']
 
 
 // const arrLar = ['abc', 'acd', 'bac', 'foo', 'bca', 'cab', 'cba',];
-const arrLar = ['abc', 'foo'];
+const arrLar = ['abc', 'acb', 'foo'];
 console.table(arrLar);
 
-for (let i = 0; i < arrLar.length; i += 1) {
-    console.log(i, '>>>', arrLar[i].split(''));
-    for (let j = 0; j < arrLar[i].length; j += 1) {
-        // console.log(arrLar[i].split(''));
-        // console.log(arrLar[i].split('').includes(arrLar[i][j]));
-        console.log('>>', arrLar[i][j]);
-        // console.log('>>', typeof(arrLar[i][j]));
-        // console.log(arrLar[i]===arrLar[j]);
-        for (let s = 0; s < arrLar[i].length; s += 1) {
-            
-            console.log(arrLar[i][j]);
-            // console.log(arrLar[i]);
-            // console.log(arrLar[i].split('').includes('a'));
-        }
-    }
-}
+// for (let i = 0; i < arrLar.length; i += 1) {
+//         console.log(i);
+//     for (let j = 0; j < arrLar.length; j += 1) {
+//         if (i !== j) {
+//              console.log('поточне', arrLar[i]);
+//              console.log('порівнюю з', arrLar[j]);
+//         }
+           
+    
+//        }
+//     }
 
+////// сравниваем два массива
+const arr05 = ['abc'];
+const arr06 = ['abc'];
+console.log(arr05.every(itm => itm.includes(arr06.map(itm=>itm))));//// true
