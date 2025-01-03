@@ -388,54 +388,67 @@ console.log('abcd'.split('').slice(-2)); ////['c', 'd']
 console.log('abcd'.split('').slice(1));  ////['b', 'c', 'd']
 
 
-// const arrLar = ['abc', 'acd', 'bac', 'foo', 'bca', 'cab', 'cba',];
-const arrLar = ['abc', 'acb', 'foo'];
-console.table(arrLar);
+const arr14 = ['abc', 'acd', 'bac', 'foo', 'bca', 'cab', 'cba',];
+const arr15 = ['fghj', 'ghfj', 'abcd', 'jhgf', 'fghj', 'fgjh', 'ghjf'];
+const arr16 = ['qwe', 'camp', 'acmp', 'pmac', 'camp', 'apmc', 'pmac'];
 
-for (let i = 0; i < arrLar.length; i += 1) {
-    console.log(i,'>>>>>>', arrLar[i]);
-    // arrLar[i].split('').every(itm => itm.includes(arrLar[i].split('').map(el => el)));
+function searchFoo(arrLar) {
     
-    for (let j = 0; j < arrLar.length; j += 1){
-        if (i !== j) {
-            // console.log('> ', i, typeof(arrLar[i]));
-            // console.log('> ', i, arrLar[i]);
-            // console.log('>>', j, arrLar[j]);
-            // arrLar[j].split('').map(el =>  console.log(el));
-            
-          
-          arrLar[i].split('').map(el =>  console.log(el));
-           
-
-
-        }
-            
-           
-            
+    let a012 = null;
+    for (let i = 0; i < arrLar.length; i += 1) {
+        // console.log(i, '>>>>>>', arrLar[i]);
+        // arrLar[i].split('').every(itm => itm.includes(arrLar[i].split('').map(el => el)));
+    
+        for (let j = 0; j < arrLar.length; j += 1) {
+            if (i !== j) {
+                // console.log('> ', i, typeof(arrLar[i]));
+                // console.log('> ', i, arrLar[i]);
+                // console.log('>>', j, arrLar[j]);
+                // arrLar[j].split('').map(el =>  console.log(el));
+                     
+                // console.log(arrLar[i].split(' ').every(num => num.includes(arrLar[j].split(' '))))
+                // st10.split('').map(el => {
+                //     if (st11.includes(el)) {
+                //         console.log('Hi!');
+                //     }
+                // });
+                arrLar[i].split('').map(oneLetter => {
+                    // console.log(oneLetter);
+                    if (!arrLar[j].includes(oneLetter)) {
+                        // console.log('Hi!', arrLar[j]);
+                        a012 = arrLar[j];
+                    
+                     }
+                }
+                )
+            }
+         }
     }
-    
+    if (a012) {
+        return console.log(a012)
+    }
 }
-       
-const arr08 = ['abc'];
-const arr09 = ['abs'];
-const arr10 = ['abc'];
+
+searchFoo(arr14); //foo
+searchFoo(arr15); //abcd
+searchFoo(arr16); //qwe
+    
+// const arr08 = ['abc'];
+// const arr09 = ['abs'];
+// const arr10 = ['abc'];
 const st10 = 'abc';
 const st11 = 'abc';
-const st12 = 'abs';
-
-console.log(st11.split(' ').every(num => num.includes(st10.split(' ').map(el => el))));//true
-
-st12.split(' ').map(el =>  console.log(el));//abc
-st12.split('').map(el =>  console.log(el)); //a
-                                            //b
-                                            //c
+// const st12 = 'abs';
 
 
+// console.log(st11.split('').includes('a'));
 
-
-
-
-
+/////This is el must be a letter here
+// 
+// st10.split(' ').map(el => console.log(el));
+// console.log(st11.split(' '));
+// console.log(st10.split(''));
+// console.log(st10.split('').map(el => el));
 
 
 ////// сравниваем два массива
