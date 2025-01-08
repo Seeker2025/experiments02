@@ -2,6 +2,7 @@
 ////// OOP
 ////// Cars
 ////// Tic Tac Toe
+//////_.debounce
 
 import cars from '../data/cars.js' 
 
@@ -59,7 +60,7 @@ const container = document.querySelector('.js-container');
 
 const carsMarkup = cars.map(({ id, img, car }) => {
     //// Одинаковый класс на три разных элемента.
-    //// Что бы отлавить event.target
+    //// Что бы отловить event.target
 
     return `
     <ul >
@@ -406,7 +407,7 @@ function searchFoo(arrLar) {
                 // console.log('>>', j, arrLar[j]);
                 // arrLar[j].split('').map(el =>  console.log(el));
                      
-                // console.log(arrLar[i].split(' ').every(num => num.includes(arrLar[j].split(' '))))
+                // console.log(arrLar[j].split(' ').every(num => num.includes(arrLar[i].split(' '))))
                 // st10.split('').map(el => {
                 //     if (st11.includes(el)) {
                 //         console.log('Hi!');
@@ -417,8 +418,7 @@ function searchFoo(arrLar) {
                     if (!arrLar[j].includes(oneLetter)) {
                         // console.log('Hi!', arrLar[j]);
                         a012 = arrLar[j];
-                    
-                     }
+                    }
                 }
                 )
             }
