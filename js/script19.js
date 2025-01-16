@@ -444,7 +444,7 @@ const st11 = 'abc';
 // console.log(st11.split('').includes('a'));
 
 /////This is el must be a letter here
-// 
+//
 // st10.split(' ').map(el => console.log(el));
 // console.log(st11.split(' '));
 // console.log(st10.split(''));
@@ -455,3 +455,20 @@ const st11 = 'abc';
 // const arr05 = ['abc'];
 // const arr06 = ['abc'];
 // console.log(arr05.every(itm => itm.includes(arr06.map(itm=>itm))));//// true
+
+//////exp
+const toLoop = function () {
+    for(let i = 0; i <= 5; i += 1) {
+        console.log('>>>', i);
+        for (let j = 0; j <= 2; j += 1) {
+            console.log(j);
+            if (i === 2 && j===2) {
+                return console.log('Hi!');
+            }
+        }
+    } 
+ }
+
+
+toLoop();
+
